@@ -8,11 +8,6 @@ Make sure you have the following installed on your system:
 - [Docker Compose](https://docs.docker.com/compose/)
 - (Optional) [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or [JetBrains DataGrip](https://www.jetbrains.com/datagrip/)
 
-> If you get an error like `zsh: command not found: docker-compose`, use the modern command:
-> ```bash
-> docker compose up -d
-> ```
-
 ---
 
 ### Clone the Repository
