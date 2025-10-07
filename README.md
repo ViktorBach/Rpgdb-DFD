@@ -12,7 +12,7 @@ Make sure you have the following installed on your system:
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/rpgdb_test.git
+git clone https://github.com/ViktorBach/Rpgdb-DFD.git
 cd rpgdb_test
 ```
 Run
