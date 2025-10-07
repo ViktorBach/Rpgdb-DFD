@@ -19,6 +19,8 @@ Make sure you have the following installed on your system:
 ```bash
 git clone https://github.com/<your-username>/rpgdb_test.git
 cd rpgdb_test
-
+```
 Run
+```bash
 docker compose up -d
+```
