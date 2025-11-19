@@ -1,50 +1,142 @@
-# RPG Backend API
+# RPG Backend – Django + MySQL + DRF + JWT
 
-A Django REST Framework backend for an RPG-style game featuring users, characters, guilds, items, skills, quests, battles, and transactions.
+This project is an RPG backend API built using **Django**, **Django REST Framework**, **MySQL**, and **JWT authentication**.  
+It supports CRUD operations for users, characters, guilds, items, quests, battles, skills, and more.
 
-This project includes:
-- JWT & Token authentication
-- CRUD operations for all RPG models
-- Relational database using Django ORM
-- Swagger UI documentation
-- Automated database seeding
-- Role-based access control (admin vs. regular users)
+It also includes:
+
+✔ MySQL as the production-ready database  
+✔ Clean ViewSets + Serializers  
+✔ Token + JWT Authentication  
+✔ Automatic API documentation via Swagger UI  
+✔ Seed script to populate demo data  
+✔ Admin interface  
+✔ Postman collection for easy testing  
+✔ Clear project structure and code organization  
+
+---
+
+## 1. Requirements
+
+Before running the project, ensure you have the following installed:
+
+- Python **3.12+**
+- MySQL Server (Workbench is fine)
+- Pip + venv
+- Git
+
+---
+
+## 2. Project Structure
+
+rpg_backend/
+│── rpg/ # App with models, views, serializers, permissions
+│── rpg_backend/ # Main Django project
+│── seed_data.py # Seeds initial demo data
+│── requirements.txt # Python dependencies
+│── README.md
 
 ---
 
 ## How you will get started
 
-### 1. Create a virtual environment
-```bash
-python -m venv venv
-source venv/bin/activate   # macOS
-venv\Scripts\activate      # Windows
-```
+## Setup Instructions
 
-### 2. Install dependencies
+### Clone the repository
+
+```bash
+git clone <repo-url>
+cd rpg_backend
+```
+Create and activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate     # macOS/Linux
+```
+Install all dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Apply migrations
+## MySQL Setup
+
+### Log into MySQL
+```bash
+mysql -u root -p
+```
+```sql
+4.2 Create the database
+CREATE DATABASE rpg_db;
+```
+
+## Configure Django to use MySQL
+
+In rpg_backend/settings.py, ensure the database configuration looks like:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rpg_db',
+        'USER': 'root',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+```
+Replace "yourpassword" with your actual MySQL root password.
+
+## Run Migrations
+
+Apply database migrations:
 ```bash
 python manage.py migrate
 ```
 
-### 4. Seed the database 
-Op to you if you want to do this step.
+This creates all required tables in MySQL.
 
-Creates sample users, characters, items, guilds, etc.
+### Seed the Database (Demo Data)
+
+Run the included seed script:
 ```bash
 python seed_data.py
 ```
+You should see output confirming users, guilds, inventories, items, etc. were created.
 
-A reset script is included:
+## Create Superuser (if you want)
 ```bash
-bash reset_db.sh
+python manage.py createsuperuser
+```
+
+Then log in here:
+
+- http://localhost:8000/admin/
+
+## Start the Development Server
+```bash
+python manage.py runserver
 ```
 
 ---
+
+## API Documentation (Swagger UI)
+
+Open the automatic API documentation at:
+
+- http://localhost:8000/api/docs/
+
+This includes:
+
+All endpoints
+
+Models and schemas
+
+Example requests
+
+Authorize with JWT
+
+Test endpoints directly
 
 ## Authentication
 
@@ -74,15 +166,13 @@ POST /api/auth/jwt/refresh
 
 ---
 
-### API Documentation (Swagger UI)
+## Postman Collection
 
-Swagger is provided via drf-spectacular.
+Import the included:
 
-Open in browser:
+- postman_collection.json
 
-* http://localhost:8000/api/docs/
-
-* http://localhost:8000/api/schema/
+It contains ready-to-test requests for all API endpoints.
 
 ### Here is an overview
 #### Available Endpoints
