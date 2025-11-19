@@ -34,7 +34,7 @@ else:
     print("Superuser already exists.")
 EOF
 
-# Step 5: Seed database
+# Seed database
 echo "🌱 Seeding database with seed_data.py..."
 python seed_data.py
 

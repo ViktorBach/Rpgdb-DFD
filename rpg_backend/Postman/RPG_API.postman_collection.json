@@ -1,0 +1,212 @@
+{
+  "info": {
+    "name": "RPG API",
+    "_postman_id": "e6bbd66c-4f8d-4bcb-9e84-0ed4e0cd1234",
+    "description": "Postman collection for RPG Django Backend with Token + JWT Authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "AUTH",
+      "item": [
+        {
+          "name": "Login (Token Auth)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/auth/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "login", ""]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"Thorin\", \"password\": \"oakenshield\"}"
+            }
+          }
+        },
+        {
+          "name": "Logout (Token Auth)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/auth/logout/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "logout", ""]
+            }
+          }
+        },
+        {
+          "name": "JWT Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/auth/jwt/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "jwt", "login", ""]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"Thorin\", \"password\": \"oakenshield\"}"
+            }
+          }
+        },
+        {
+          "name": "JWT Refresh",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/auth/jwt/refresh/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "auth", "jwt", "refresh", ""]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"refresh\": \"{{refresh_token}}\"}"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "CHARACTERS",
+      "item": [
+        {
+          "name": "Get All Characters",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{access_token}}"}
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/characters/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "characters", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Character (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"},
+              {"key": "Authorization", "value": "Bearer {{access_token}}"}
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/characters/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "characters", "1", ""]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"level\": 15}"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "ITEMS",
+      "item": [
+        {
+          "name": "Get All Items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{access_token}}"}
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/items/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "items", ""]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "GUILDS",
+      "item": [
+        {
+          "name": "Get All Guilds",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{access_token}}"}
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/guilds/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "guilds", ""]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "NPCS",
+      "item": [
+        {
+          "name": "Get NPCs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{access_token}}"}
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/npcs/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "npcs", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
