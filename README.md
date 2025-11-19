@@ -105,19 +105,13 @@ Transactions	/api/transactions/	Linked to users
 The users is included via seeding
 
 Admin user
-
 * username: sofiethorlund
-
 * (password set manually)
 
 Regular users
-
 * Viktor
-
 * Luna
-
 * Thorin
-
 * Harry
 
 ---
